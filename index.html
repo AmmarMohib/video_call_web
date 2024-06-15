@@ -1,0 +1,307 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .info-section {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+            color: #555;
+        }
+
+        .info-section p {
+            margin: 5px 0;
+            color: #777;
+        }
+
+        .error {
+            color: #ff6347;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Device Info</h1>
+
+        <div class="info-section" id="deviceInfo">
+            <h2>Device Information</h2>
+            <p>Detecting device...</p>
+        </div>
+
+        <div class="info-section" id="browserInfo">
+            <h2>Browser Information</h2>
+            <p>Detecting browser...</p>
+        </div>
+
+        <div class="info-section" id="ipAddress">
+            <h2>Public IP Address</h2>
+            <p>Fetching IP address...</p>
+        </div>
+
+        <div class="info-section" id="connectionInfo">
+            <h2>Connection Provider</h2>
+            <p>Detecting connection provider...</p>
+        </div>
+    </div>
+
+    <script>
+        console.log(navigator.userAgent);
+        let browserInfo = navigator.userAgent;
+     
+        // Function to fetch device information
+        function fetchDeviceInfo() {
+            const userAgent = navigator.userAgent;
+            let platform;
+
+            if (/Android/i.test(userAgent)) {
+                platform = 'Android';
+            } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+                platform = 'iOS';
+            } else if (/Windows/i.test(userAgent)) {
+                platform = 'Windows';
+            } else if (/Macintosh|Mac OS X/i.test(userAgent)) {
+                platform = 'macOS';
+            } else {
+                platform = 'Other device or operating system';
+            }
+
+            // Update HTML element with device information
+            const deviceInfoElement = document.getElementById('deviceInfo');
+            deviceInfoElement.innerHTML = `
+                <h2>Device Information</h2>
+                <p>User is using ${platform}</p>
+            `;
+        }
+
+        // Function to fetch browser information
+        function fetchBrowserInfo() {
+            const userAgent = navigator.userAgent;
+            let browser;
+        if (browserInfo.includes('Opera') || browserInfo.includes('Opr')) {
+          browser = 'Opera';
+        } else if (browserInfo.includes('Edg')) {
+          browser = 'Edge';
+        } else if (browserInfo.includes('Chrome')) {
+          browser = 'Chrome';
+        } else if (browserInfo.includes('Safari')) {
+          browser = 'Safari';
+        } else if (browserInfo.includes('Firefox')) {
+          browser = 'Firefox'
+        } else {
+          browser = 'unknown'
+        }
+            // Update HTML element with browser information
+            const browserInfoElement = document.getElementById('browserInfo');
+            browserInfoElement.innerHTML = `
+                <h2>Browser Information</h2>
+                <p>User is using ${browser}</p>
+            `;
+        }
+
+        // Function to fetch public IP address
+        function fetchIPAddress() {
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    const ipAddressElement = document.getElementById('ipAddress');
+                    ipAddressElement.innerHTML = `
+                        <h2>Public IP Address</h2>
+                        <p>Your Public IP Address: ${data.ip}</p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error fetching IP address:', error);
+                    const ipAddressElement = document.getElementById('ipAddress');
+                    ipAddressElement.innerHTML = `
+                        <h2>Public IP Address</h2>
+                        <p class="error">Error fetching IP address</p>
+                    `;
+                });
+        }
+function detectConnectionProvider() {
+    if (navigator.connection) {
+        const connection = navigator.connection;
+        const connectionType = connection.type;
+        const effectiveType = connection.effectiveType;
+
+        console.log("Connection type: ", connectionType);
+        console.log("Effective connection type: ", effectiveType);
+
+        // Update HTML element with connection provider information
+        const connectionInfoElement = document.getElementById('connection.type');
+        connectionInfoElement.innerHTML = `
+            <h2>Connection Provider</h2>
+            <p>Connection type: ${connectionType}</p>
+            <p>Effective connection type: ${effectiveType}</p>
+        `;
+    } else {
+        console.log("Connection API not supported.");
+
+        // Update HTML element to indicate API not supported
+        const connectionInfoElement = document.getElementById('effectiveType');
+        connectionInfoElement.innerHTML = `
+            <h2>Connection Provider</h2>
+            <p>Connection API not supported.</p>
+        `;
+    }
+}
+
+
+        // Call the functions when the page loads
+        fetchDeviceInfo();
+        fetchBrowserInfo();
+        fetchIPAddress();
+        detectConnectionProvider();
+    </script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Video Call</title>
+    <style>
+        video {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Basic Video Call</h1>
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Video Call</title>
+    <style>
+        .video-container {
+            display: flex;
+            justify-content: center;
+        }
+        video {
+            width: 50%;
+            max-width: 600px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Basic Video Call</h1>
+    <div class="video-container">
+        <video id="localVideo" autoplay muted></video>
+        <video id="remoteVideo" autoplay></video>
+        <button onclick="startCall()">Start Call</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call</title>
+    <style>
+        #localVideo, #remoteVideo {
+            width: 320px;
+            height: 240px;
+            margin: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Video Call</h2>
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+
+    <br>
+    <button onclick="startCall()">Start Call</button>
+    <button onclick="endCall()">End Call</button>
+
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC Video Call</title>
+    <style>
+        #localVideo, #remoteVideo {
+            width: 320px;
+            height: 240px;
+            margin: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h2>WebRTC Video Call</h2>
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+
+    <br>
+    <button onclick="startCall()">Start Call</button>
+    <button onclick="endCall()">End Call</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
